@@ -915,9 +915,17 @@ class MainWindow(QMainWindow):
 
             func = tc.get("function", {})
             tool_name = func.get("name", "")
-            try:
-                arguments = json.loads(func.get("arguments", "{}"))
-            except json.JSONDecodeError:
+
+            # arguments 既可能是 JSON 字符串，也可能已经是 dict（例如部分本地模型/提供方）
+            raw_args = func.get("arguments", "{}")
+            if isinstance(raw_args, dict):
+                arguments = raw_args
+            elif isinstance(raw_args, str):
+                try:
+                    arguments = json.loads(raw_args or "{}")
+                except json.JSONDecodeError:
+                    arguments = {}
+            else:
                 arguments = {}
 
             if self._bridge_client is not None:

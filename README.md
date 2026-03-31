@@ -8,7 +8,7 @@
 ![LibreOffice](https://img.shields.io/badge/LibreOffice-%206.0%2B-green)
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 
-本仓库在优秀开源项目 **[LibreCalc AI Assistant](https://github.com/palamut62/libre_calc_ai_addon)**（原作者 [palamut62](https://github.com/palamut62)）基础上，**接入腾讯混元（Hunyuan）OpenAI 兼容接口**，并针对 **macOS + Python 3.9** 等环境做了**可直接安装运行**的修复与打包说明。
+本仓库在优秀开源项目 **[LibreCalc AI Assistant](https://github.com/palamut62/libre_calc_ai_addon)**（原作者 [palamut62](https://github.com/palamut62)）基础上，**接入腾讯混元（Hunyuan）OpenAI 兼容接口**，并针对 **macOS + Python 3.9** 等环境做了**可直接安装运行**的修复与打包说明；同时补充了 **Ollama 本地模型工具调用支持**，支持在「云端混元」与「本地大模型」之间一键切换。
 
 ---
 
@@ -65,7 +65,7 @@
 - 可 `import httpx`
 - Python **3.9** 用户：本仓库已加入 `from __future__ import annotations` 等兼容，避免 `list[dict] | None` 导入崩溃
 
-建议在 `~/.config/libre_calc_ai/settings.json` 中设置（示例）：
+建议在 `~/.config/libre_calc_ai/settings.json` 中设置（示例，使用腾讯混元）：
 
 ```json
 {
@@ -76,6 +76,22 @@
   "hunyuan_default_model": "hunyuan-turbos-latest"
 }
 ```
+
+如需使用 **本地 Ollama 模型（以 `qwen2.5:7b` 为例）**，可以在同一个文件中同时保留两套配置，通过 `llm_provider` 一键切换：
+
+```json
+{
+  "system_python_path": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "llm_provider": "ollama",
+  "ollama_base_url": "http://localhost:11434",
+  "ollama_default_model": "qwen2.5:7b",
+  "hunyuan_api_key": "",
+  "hunyuan_base_url": "https://api.hunyuan.cloud.tencent.com/v1",
+  "hunyuan_default_model": "hunyuan-turbos-latest"
+}
+```
+
+将 `llm_provider` 设为 `"ollama"` 即使用本地模型；改为 `"hunyuan"` 并提供有效 `hunyuan_api_key` 即使用腾讯混元。
 
 ### 3. 一键补依赖（示例）
 
@@ -116,7 +132,7 @@ zip -r ../libre_calc_ai-1.0.2-hunyuan.oxt .
 │  LibreOffice    │ ◄──────────────► │  PyQt5 主界面/设置   │
 │  (interface.py) │   tools/dispatch │  (系统 Python)       │
 └────────┬────────┘                  └──────────┬───────────┘
-         │ UNO                                   │ 腾讯混元 API
+         │ UNO                                   │ LLM（腾讯混元 / 本地 Ollama）
          ▼                                      ▼
     当前 Calc 文档                         文本/工具调用
 ```
