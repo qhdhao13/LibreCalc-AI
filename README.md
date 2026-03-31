@@ -1,5 +1,7 @@
 # LibreCalc AI（国产混元增强版）
 
+> 仓库目标地址：**[github.com/qhdhao13/LibreCalc-AI](https://github.com/qhdhao13/LibreCalc-AI)**（推送说明见文末）
+
 > 在 **LibreOffice Calc** 里，用自然语言 **读表、写公式、改样式、做图表**——像给表格装了一个听得懂人话的「副驾驶」。
 
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)
@@ -131,3 +133,30 @@ zip -r ../libre_calc_ai-1.0.2-hunyuan.oxt .
 ---
 
 <p align="center"><b>Enjoy your spreadsheet copilot.</b></p>
+
+---
+
+## 推送到你的 GitHub（qhdhao13）
+
+在本机项目根目录 **`LibreCalc AI`** 下已经初始化 Git 并完成首次提交。请你**在自己的终端**执行（需已安装 [GitHub CLI](https://cli.github.com/) 并已登录）：
+
+```bash
+cd "/Volumes/disk-hfm/LibreCalc AI"
+gh auth login
+gh repo create LibreCalc-AI --public \
+  --description "LibreCalc AI — 腾讯混元增强版 · LibreOffice Calc 自然语言助手" \
+  --source=. --remote=origin --push
+```
+
+登录账号为 **qhdhao13** 时，上述命令会创建 **`https://github.com/qhdhao13/LibreCalc-AI`** 并推送。
+
+**若不用 gh**：在 GitHub 网页新建空仓库 `LibreCalc-AI`，然后：
+
+```bash
+cd "/Volumes/disk-hfm/LibreCalc AI"
+git remote add origin https://github.com/qhdhao13/LibreCalc-AI.git
+git branch -M main
+git push -u origin main
+```
+
+**发布安装包**：可将根目录的 `libre_calc_ai-1.0.2-hunyuan.oxt` 在 GitHub **Releases** 里上传，方便他人直接下载安装。
