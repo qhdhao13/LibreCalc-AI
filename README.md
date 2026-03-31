@@ -12,6 +12,19 @@
 
 ---
 
+## 维护者与联系方式
+
+本仓库（混元增强版与相关说明）由 **[@qhdhao13](https://github.com/qhdhao13)** 维护。
+
+| 方式 | 内容 |
+|------|------|
+| **微信** | `qhdhao`（添加时请注明来意，例如「LibreCalc AI」） |
+| **邮箱** | [qhdhao@126.com](mailto:qhdhao@126.com) |
+
+欢迎反馈问题与改进建议；**商用或再发行合作**请先通过上表方式联系并取得同意。
+
+---
+
 ## 为什么你会需要它
 
 - **会说人话**：用中文描述需求，例如「把 A1:D1 合并并加粗」「写入求和公式」「检查这片区域有没有公式错误」。
@@ -121,14 +134,14 @@ zip -r ../libre_calc_ai-1.0.2-hunyuan.oxt .
 
 - **许可证**：本仓库在 **`LICENSE`** 中沿用 **MIT**（含上游版权声明）；另有 **`NOTICE`** 说明衍生来源。
 - **个人与非商业开源分享**：欢迎 Fork、学习、自用、在遵守 MIT 的前提下分享改进。
-- **商业使用**：若将本仓库或衍生成果用于**对外商业产品、SaaS、再发行收费发行版**等场景，**请先与维护者 @qhdhao13 沟通并取得同意**（便于品牌、责任边界与支持方式达成一致）。  
+- **商业使用**：若将本仓库或衍生成果用于**对外商业产品、SaaS、再发行收费发行版**等场景，**请先通过本 README「维护者与联系方式」中的微信或邮箱与维护者沟通并取得同意**（便于品牌、责任边界与支持方式达成一致）。  
   *说明：MIT 在法律层面允许商用；此条为维护者倡导的**事先沟通约定**，亦有助于避免误用密钥、数据合规与品牌混淆。*
 
 ---
 
 ## English (short)
 
-**LibreCalc AI — Hunyuan-ready fork** for LibreOffice Calc: natural-language spreadsheet assistant with tool calling (read/write/format/charts). Adds **Tencent Hunyuan** (OpenAI-compatible) provider plus macOS/Python 3.9 friendliness. Upstream: **palamut62** (MIT). **Commercial use: please contact @qhdhao13 first** (courtesy / coordination; see `LICENSE` for legal terms).
+**LibreCalc AI — Hunyuan-ready fork** for LibreOffice Calc: natural-language spreadsheet assistant with tool calling (read/write/format/charts). Adds **Tencent Hunyuan** (OpenAI-compatible) provider plus macOS/Python 3.9 friendliness. Upstream: **palamut62** (MIT). **Maintainer:** [@qhdhao13](https://github.com/qhdhao13) · WeChat `qhdhao` · Email `qhdhao@126.com`. **Commercial use: please contact the maintainer first** (courtesy / coordination; see `LICENSE` for legal terms).
 
 ---
 
