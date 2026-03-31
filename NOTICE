@@ -1,0 +1,8 @@
+This project includes work derived from LibreCalc AI Assistant by palamut62.
+Upstream: https://github.com/palamut62/libre_calc_ai_addon (see upstream LICENSE).
+
+This repository adds, among other things:
+- Tencent Hunyuan (OpenAI-compatible API) provider
+- Packaging fixes for macOS / Python 3.9 (annotations, optional dotenv, OXT script URLs)
+
+Maintainer community preferences are described in README.md (commercial courtesy).
