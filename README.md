@@ -53,7 +53,7 @@
 
 ### 1. 安装扩展
 
-1. 下载本仓库发布页中的 **`libre_calc_ai-1.0.2-hunyuan.oxt`**（或自行从 `_oxt_extracted` 打包，见下文）。
+1. 下载本仓库发布页中的 **`libre_calc_ai-1.0.3-hunyuan.oxt`**（或自行从 `_oxt_extracted` 打包，见下文）。
 2. LibreOffice → **工具 → 扩展管理器 → 添加** → 选择该 `.oxt`。
 3. **完全退出并重启** LibreOffice。
 
@@ -118,10 +118,10 @@
 
 ```bash
 cd _oxt_extracted
-zip -r ../libre_calc_ai-1.0.2-hunyuan.oxt .
+zip -r ../libre_calc_ai-1.0.3-hunyuan.oxt .
 ```
 
-**注意**：`Addons.xcu` 中的脚本 URL 必须与最终 `.oxt` **文件名一致**，否则会报 `KeyError`；本仓库内已对齐 `libre_calc_ai-1.0.2-hunyuan.oxt`。
+**注意**：`Addons.xcu` 中的脚本 URL 必须与最终 `.oxt` **文件名一致**，否则会报 `KeyError`；本仓库内已对齐 `libre_calc_ai-1.0.3-hunyuan.oxt`。
 
 ---
 
@@ -188,4 +188,4 @@ git branch -M main
 git push -u origin main
 ```
 
-**发布安装包**：可将根目录的 `libre_calc_ai-1.0.2-hunyuan.oxt` 在 GitHub **Releases** 里上传，方便他人直接下载安装。
+**发布安装包**：可将根目录的 `libre_calc_ai-1.0.3-hunyuan.oxt` 在 GitHub **Releases** 里上传，方便他人直接下载安装。
