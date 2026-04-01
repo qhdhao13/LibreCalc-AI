@@ -797,7 +797,15 @@ class ToolDispatcher:
         """Hücreye formül veya değer yazar."""
         cell = args["cell"]
         cells, _too_large = self._snapshot_range(cell, max_cells=1)
-        result = self._cell_manipulator.write_formula(cell, args["formula"])
+        # 兼容本地模型（例如 Ollama + qwen2.5）在 tool 参数里把 formula 生成成 dict 的情况。
+        # 为什么要做这层兼容：
+        # - 该项目的底层写入函数 `CellManipulator.write_formula(address, formula)` 期望 formula 为字符串；
+        # - 但部分模型会输出结构化对象（dict），例如 {"value": "=SUM(A1:A10)"} 或 {"text": "123"}；
+        # - 如果不做转换，会导致上游在处理字符串时调用 .strip()/.startswith() 报错，最终表格不会被修改。
+        raw_formula = args.get("formula", "")
+        if isinstance(raw_formula, dict):
+            raw_formula = raw_formula.get("value") or raw_formula.get("text") or raw_formula.get("formula") or ""
+        result = self._cell_manipulator.write_formula(cell, str(raw_formula))
         self._log_change(f"Hücre yazıldı: {cell}", cells=cells, undoable=True, partial=False)
         return result
 
